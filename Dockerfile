@@ -9,7 +9,7 @@
 
 FROM    ubuntu:14.04
 MAINTAINER dnephin@gmail.com
-EXPOSE  8000
+EXPOSE 8000
 
 ENV     DEBIAN_FRONTEND noninteractive
 
