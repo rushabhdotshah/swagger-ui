@@ -1,0 +1,38 @@
+image: ubuntu:14.04
+git:
+  path: github.com/rushabhdotshah/swagger-ui
+script:
+  - echo "build commands"
+  - echo "no build command"
+  - echo "no test command"
+clone:
+  path: github.com/rushabhdotshah/swagger-ui
+build:
+  image: ubuntu:14.04
+  commands:
+    - echo "build commands"
+    - echo "no build command"
+    - echo "no test command"
+publish:
+  docker:
+    dockerfile: ./Dockerfile
+    docker_host: 10.10.10.15:2375
+    docker_version: 1.4.1
+    registry_login_url: $$bintray_repo_login_url
+    registry_login: true
+    username: $$bintray_user
+    password: $$bintray_api_key
+    email: $$bintray_user_email
+    image_name: $$bintray_image_name
+    push_latest: true
+    tag: $$COMMIT
+
+    registry: $$bintray_registry
+    repo: $$bintray_repo
+notify:
+  webhook:
+    image: shippedrepos-docker-drone.bintray.io/drone-webhook
+    urls:
+      - "https://api.ciscoshipped.io/webhooks/drone"
+    on_success: true
+    on_failure: true
