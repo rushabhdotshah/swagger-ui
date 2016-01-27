@@ -11,11 +11,11 @@ FROM    ubuntu:14.04
 MAINTAINER dnephin@gmail.com
 
 ENV     DEBIAN_FRONTEND noninteractive
-
+EXPOSE  8000
 
 RUN     apt-get update && apt-get install -y git npm nodejs openjdk-7-jre
 RUN     ln -s /usr/bin/nodejs /usr/local/bin/node
-EXPOSE  8000
+
 
 WORKDIR /build
 ADD     package.json    /build/package.json
