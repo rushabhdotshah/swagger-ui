@@ -1,18 +1,18 @@
-image: ubuntu:14.04
+image: ubuntu:14.04 
 git:
   path: github.com/rushabhdotshah/swagger-ui
 script:
   - echo "build commands"
-  - echo "no build command"
-  - echo "no test command"
+  - .shipped/build
+  - .shipped/test
 clone:
   path: github.com/rushabhdotshah/swagger-ui
 build:
   image: ubuntu:14.04
   commands:
     - echo "build commands"
-    - echo "no build command"
-    - echo "no test command"
+    - .shipped/build
+    - .shipped/test
 publish:
   docker:
     dockerfile: ./Dockerfile
