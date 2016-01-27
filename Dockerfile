@@ -9,9 +9,9 @@
 
 FROM    ubuntu:14.04
 MAINTAINER dnephin@gmail.com
+EXPOSE  8000
 
 ENV     DEBIAN_FRONTEND noninteractive
-EXPOSE  8000
 
 RUN     apt-get update && apt-get install -y git npm nodejs openjdk-7-jre
 RUN     ln -s /usr/bin/nodejs /usr/local/bin/node
