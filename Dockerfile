@@ -12,12 +12,14 @@ MAINTAINER dnephin@gmail.com
 
 ENV     DEBIAN_FRONTEND noninteractive
 
+
 RUN     apt-get update && apt-get install -y git npm nodejs openjdk-7-jre
 RUN     ln -s /usr/bin/nodejs /usr/local/bin/node
+EXPOSE  8000
 
 WORKDIR /build
 ADD     package.json    /build/package.json
 RUN     npm install
 ADD     .   /build
 CMD     ./node_modules/gulp/bin/gulp.js serve
-EXPOSE  8000
+
